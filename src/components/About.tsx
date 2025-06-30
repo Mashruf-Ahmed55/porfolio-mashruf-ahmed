@@ -35,7 +35,7 @@ const About: React.FC = () => {
 
   return (
     <section id="about" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,8 +60,8 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <div className="space-y-4">
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            <div className="space-y-4 text-justify text-sm md:text-lg">
+              <p className=" text-gray-600 dark:text-gray-300 leading-relaxed">
                 Hello, I'm <span className="font-bold">Mashruf Ahmed</span>, and
                 I'm a self-driven full-stack web developer with a passion for
                 building user-focused, modern web applications. I enjoy working
@@ -69,14 +69,14 @@ const About: React.FC = () => {
                 accountability are key.
               </p>
 
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className=" text-gray-600 dark:text-gray-300 leading-relaxed">
                 I specialize in React, Next.js, Node.js, and MongoDB—crafting
                 responsive, scalable solutions with clean design and efficient
                 backend logic. I also work with Tailwind CSS and RESTful APIs to
                 ensure seamless user experiences.
               </p>
 
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className=" text-gray-600 dark:text-gray-300 leading-relaxed">
                 Beyond coding, I value continuous learning, problem-solving, and
                 writing maintainable code that delivers real impact.
               </p>
@@ -87,7 +87,7 @@ const About: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="flex flex-wrap gap-3 pt-4"
+              className="flex flex-wrap gap-3 pt-4 justify-center md:justify-around"
             >
               {[
                 'JavaScript',

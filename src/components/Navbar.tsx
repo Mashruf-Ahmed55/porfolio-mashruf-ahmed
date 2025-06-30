@@ -301,48 +301,6 @@ export default function UnifiedNavbar() {
             ))}
           </ul>
         </nav>
-
-        {/* Mobile Menu Footer */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-200/30 dark:border-gray-700/30 bg-gray-50/50 dark:bg-gray-800/50">
-          <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-4">
-            Connect with me
-          </h4>
-          <div className="flex space-x-4 mb-4">
-            {socialLinks.map((social, index) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-3 bg-white/50 dark:bg-gray-800/50 rounded-xl text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110 border border-gray-200/30 dark:border-gray-700/30 ${
-                  isOpen ? 'animate-fade-in' : ''
-                }`}
-                style={{
-                  animationDelay: `${(navItems.length + index) * 100}ms`,
-                }}
-              >
-                <social.icon className="w-5 h-5" />
-                <span className="sr-only">{social.name}</span>
-              </a>
-            ))}
-          </div>
-          <button
-            onClick={() => scrollToSection('#contact')}
-            className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-[1.02] flex items-center justify-center space-x-2 mb-2"
-          >
-            <Mail className="w-4 h-4" />
-            <span>Get In Touch</span>
-          </button>
-          <button
-            onClick={() => {
-              window.open('/resume.pdf', '_blank');
-              closeMenu();
-            }}
-            className="w-full py-3 px-4 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-[1.02]"
-          >
-            Download CV
-          </button>
-        </div>
       </div>
 
       {/* Custom Animations */}

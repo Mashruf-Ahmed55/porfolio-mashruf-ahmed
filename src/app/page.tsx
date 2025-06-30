@@ -1,5 +1,6 @@
 'use client';
-import { motion } from 'motion/react';
+
+import { motion } from 'framer-motion';
 import React from 'react';
 import About from '../components/About';
 import Experience from '../components/Experience';
@@ -19,13 +20,15 @@ const Home: React.FC = () => {
       className="min-h-screen w-full"
     >
       <Navbar />
-      <main className="max-w-7xl mx-auto sm:px-6 lg:px-8 py-20">
+
+      <main className="pt-32 pb-20">
         <Hero />
         <About />
         <Skills />
         <Projects />
         <Experience />
       </main>
+
       <Footer />
     </motion.div>
   );

@@ -26,10 +26,9 @@ const Footer: React.FC = () => {
   return (
     <footer
       ref={footerRef}
-      className="bg-gray-900 text-white relative overflow-hidden"
+      className=" text-white relative overflow-hidden w-full"
     >
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-purple-900/10" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
       <div className="relative container mx-auto px-6 py-8">

@@ -4,6 +4,7 @@ import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'motion/react';
 import React from 'react';
 import { RiQuillPenAiLine } from 'react-icons/ri';
+import ContactForm from './ContactFrom';
 import DeveloperModel from './DeveloperModel';
 
 const Hero: React.FC = () => {
@@ -21,8 +22,8 @@ const Hero: React.FC = () => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden w-full"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
           {/* Left side - Text content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -65,7 +66,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
-              className="text-md text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-lg "
+              className="text-md text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-lg text-justify"
             >
               I design and develop full-stack web applications using React,
               Node.js, and MongoDB. Always learning, always coding and always
@@ -80,22 +81,24 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 1.2 }}
               className="flex flex-col sm:flex-row gap-4 mb-8 "
             >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('#contact')}
-                className="px-2.5 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition-all cursor-pointer"
-                onMouseEnter={() => setCursorType('hover')}
-                onMouseLeave={() => setCursorType('default')}
-              >
-                Get In Touch
-              </motion.button>
+              <ContactForm>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => scrollToSection('#contact')}
+                  className="px-2.5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:shadow-lg transition-all cursor-pointer rounded-full"
+                  onMouseEnter={() => setCursorType('hover')}
+                  onMouseLeave={() => setCursorType('default')}
+                >
+                  Get In Touch
+                </motion.button>
+              </ContactForm>
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.open('/cv.pdf', '_blank')}
-                className="px-2.5 py-1 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-md font-medium cursor-pointer flex items-center gap-x-1"
+                className="px-3 py-2.5 border-2 border-blue-600 text-blue-600 dark:text-blue-400 font-medium cursor-pointer flex items-center gap-x-1 rounded-full justify-center"
                 onMouseEnter={() => setCursorType('hover')}
                 onMouseLeave={() => setCursorType('default')}
               >

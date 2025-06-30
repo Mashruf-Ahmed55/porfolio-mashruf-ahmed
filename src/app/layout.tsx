@@ -1,7 +1,6 @@
 import ContactButton from '@/components/ContactButton';
 import Provider from '@/components/Provider';
 import { SmoothScroll } from '@/components/SmoothScroll';
-import ThemeManager from '@/components/ThemeManager';
 import type { Metadata } from 'next';
 import { Montserrat_Alternates } from 'next/font/google';
 import './globals.css';
@@ -24,11 +23,15 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning={true}>
       <body
-        className={`${montserrat.className} antialiased`}
+        className={`${montserrat.className} antialiased overflow-x-hidden`}
         suppressHydrationWarning={true}
       >
         <SmoothScroll>
-          <Provider>{children}</Provider>
+          <Provider>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {children}
+            </div>
+          </Provider>
           {/* <LiftUpButton /> */}
           <ContactButton />
         </SmoothScroll>
