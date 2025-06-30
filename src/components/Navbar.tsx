@@ -1,29 +1,14 @@
 'use client';
 
-import {
-  Briefcase,
-  Github,
-  Home,
-  Linkedin,
-  Mail,
-  Twitter,
-  User,
-  X,
-  Zap,
-} from 'lucide-react';
+import { Briefcase, Home, Mail, User, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { RiBnbFill } from 'react-icons/ri';
 
 const navItems = [
   { name: 'Home', href: '#home', icon: Home },
   { name: 'About', href: '#about', icon: User },
-  { name: 'Projects', href: '#projects', icon: Briefcase },
   { name: 'Skills', href: '#skills', icon: Mail },
-];
-
-const socialLinks = [
-  { name: 'GitHub', href: 'https://github.com', icon: Github },
-  { name: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
-  { name: 'Twitter', href: 'https://twitter.com', icon: Twitter },
+  { name: 'Projects', href: '#projects', icon: Briefcase },
 ];
 
 export default function UnifiedNavbar() {
@@ -104,7 +89,7 @@ export default function UnifiedNavbar() {
                       : 'bg-white/10 backdrop-blur-sm border border-white/20'
                   }`}
                 >
-                  <Zap className="w-6 h-6 text-white group-hover:rotate-12 transition-transform duration-300" />
+                  <RiBnbFill className="w-6 h-6 text-white group-hover:rotate-12 transition-transform duration-300" />
                 </div>
                 {!scrolled && (
                   <div className="absolute inset-0 w-12 h-12 bg-blue-400/20 rounded-xl animate-ping" />
@@ -132,7 +117,7 @@ export default function UnifiedNavbar() {
 
             {/* Navigation Menu */}
             <div
-              className={`backdrop-blur-xl border rounded-full px-8 py-3 transition-all duration-500 ${
+              className={`backdrop-blur-xl border rounded-full px-8 py-1.5 transition-all duration-500 ${
                 scrolled
                   ? 'bg-white/90 dark:bg-gray-900/90 border-gray-200/30 dark:border-gray-700/30 shadow-2xl'
                   : 'bg-white/10 border-white/20 shadow-lg'
@@ -187,7 +172,7 @@ export default function UnifiedNavbar() {
                   : 'bg-gray-900/80 backdrop-blur-sm border border-gray-700/50'
               }`}
             >
-              <Zap className="w-5 h-5 text-white group-hover:rotate-12 transition-transform duration-300" />
+              <RiBnbFill className="w-5 h-5 text-white group-hover:rotate-12 transition-transform duration-300" />
             </div>
             {!scrolled && (
               <div className="absolute inset-0 w-10 h-10 bg-blue-400/20 rounded-xl animate-ping" />
@@ -257,7 +242,7 @@ export default function UnifiedNavbar() {
             className="flex items-center space-x-3 group transition-all duration-300 hover:scale-105"
           >
             <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-              <Zap className="w-5 h-5 text-white group-hover:rotate-12 transition-transform duration-300" />
+              <RiBnbFill className="w-5 h-5 text-white group-hover:rotate-12 transition-transform duration-300" />
             </div>
             <div className="flex flex-col items-start">
               <span className="text-lg font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">

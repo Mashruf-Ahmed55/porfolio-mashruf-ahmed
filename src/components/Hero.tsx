@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection('#contact')}
-                  className="px-2.5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:shadow-lg transition-all cursor-pointer rounded-full"
+                  className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:shadow-lg transition-all cursor-pointer rounded-full"
                   onMouseEnter={() => setCursorType('hover')}
                   onMouseLeave={() => setCursorType('default')}
                 >
@@ -98,7 +98,7 @@ const Hero: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.open('/cv.pdf', '_blank')}
-                className="px-3 py-2.5 border-2 border-blue-600 text-blue-600 dark:text-blue-400 font-medium cursor-pointer flex items-center gap-x-1 rounded-full justify-center"
+                className="px-4 py-2.5 border-2 border-blue-600 text-blue-600 dark:text-blue-400 font-medium cursor-pointer flex items-center gap-x-1 rounded-full justify-center"
                 onMouseEnter={() => setCursorType('hover')}
                 onMouseLeave={() => setCursorType('default')}
               >

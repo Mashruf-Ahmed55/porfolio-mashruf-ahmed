@@ -8,70 +8,59 @@ const Projects: React.FC = () => {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
+      title: 'Food Expire Tracker',
       description:
-        'A full-stack e-commerce solution built with MERN stack, featuring user authentication, payment integration, and admin dashboard.',
-      image:
-        'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
-      github: '#',
-      live: '#',
+        'A food expiry tracker app that helps users track the expiration date of food items and alerts them when the food is about to expire.',
+      image: 'https://personal-214257630.imgix.net/expire-food.png',
+      technologies: [
+        'Tailwind CSS',
+        'React',
+        'Node.js',
+        'MongoDB',
+        'Express',
+        'TypeScript',
+        'Mongoose',
+      ],
+      github:
+        'https://github.com/Mashruf-Ahmed55/food-expiry-tracker-system-client',
+      live: 'https://food-expire-tracker-system55.netlify.app',
       featured: true,
     },
     {
-      title: 'Task Management App',
+      title: 'Recipe Book',
       description:
-        'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      image:
-        'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'TypeScript', 'Socket.io', 'PostgreSQL'],
-      github: '#',
-      live: '#',
+        'A recipe book app that allows users to search, save, and share recipes with others.',
+      image: 'https://personal-214257630.imgix.net/food.png',
+      technologies: [
+        'Tailwind CSS',
+        'React',
+        'Node.js',
+        'MongoDB',
+        'Express',
+        'TypeScript',
+        'Mongoose',
+      ],
+      github: 'https://github.com/Mashruf-Ahmed55/recipe-book-app-client',
+      live: 'https://recipe-book-app-client.vercel.app',
       featured: true,
     },
     {
-      title: 'Weather Dashboard',
+      title: 'Event Explore',
       description:
-        'A responsive weather application with location-based forecasts, interactive maps, and weather alerts.',
-      image:
-        'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'OpenWeather API', 'Chart.js', 'Tailwind'],
-      github: '#',
-      live: '#',
-      featured: false,
-    },
-    {
-      title: 'Social Media Dashboard',
-      description:
-        'Analytics dashboard for social media management with data visualization and scheduling features.',
-      image:
-        'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Next.js', 'React', 'D3.js', 'Firebase'],
-      github: '#',
-      live: '#',
-      featured: false,
-    },
-    {
-      title: 'Blog Platform',
-      description:
-        'A modern blog platform with markdown support, comment system, and SEO optimization.',
-      image:
-        'https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Next.js', 'MDX', 'Prisma', 'PostgreSQL'],
-      github: '#',
-      live: '#',
-      featured: false,
-    },
-    {
-      title: 'Portfolio Website',
-      description:
-        'A stunning portfolio website with 3D animations, smooth transitions, and modern design.',
-      image:
-        'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'Three.js', 'Framer Motion', 'Tailwind'],
-      github: '#',
-      live: '#',
-      featured: false,
+        'A web app that allows users to search for events and get information about them.',
+      image: 'https://personal-214257630.imgix.net/explore.png',
+      technologies: [
+        'Tailwind CSS',
+        'React',
+        'Node.js',
+        'MongoDB',
+        'Express',
+        'TypeScript',
+        'Mongoose',
+      ],
+      github: 'https://github.com/Mashruf-Ahmed55/event-explore',
+      live: 'https://event-explore-mashruf-ahmed55.netlify.app',
+      featured: true,
     },
   ];
 
