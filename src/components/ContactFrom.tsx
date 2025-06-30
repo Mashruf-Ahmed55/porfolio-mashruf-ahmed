@@ -168,7 +168,7 @@ export default function ContactForm({
   return (
     <Drawer>
       <DrawerTrigger asChild>{children}</DrawerTrigger>
-      <DrawerContent className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-6 bg-gray-900/95 backdrop-blur-sm border-gray-700">
+      <DrawerContent className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6 bg-gray-900/95 backdrop-blur-sm border-gray-700">
         <DrawerHeader className="text-center mb-6 sm:mb-8">
           <DrawerTitle className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-3 sm:mb-4">
             {"Let's Work Together"}
