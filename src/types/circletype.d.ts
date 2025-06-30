@@ -1,4 +1,4 @@
-// types/circletype.d.ts
+
 declare module 'circletype' {
   export default class CircleType {
     constructor(element: HTMLElement | null);

@@ -1,5 +1,5 @@
 import {
-  IconType,
+  IconType as IconTypeReactSimpleIcons,
   SiCss,
   SiExpress,
   SiGit,
@@ -18,12 +18,20 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from '@icons-pack/react-simple-icons';
+import { Mail, MapPin, Phone } from 'lucide-react';
+import { IconType } from 'react-icons/lib';
 interface Skill {
-  Icon: IconType | string;
+  Icon: IconTypeReactSimpleIcons | string;
   level: number;
   color?: string;
   name: string;
   type?: string;
+}
+
+interface ContactInfo {
+  Icon: IconType;
+  label: string;
+  value?: string;
 }
 export const skills: Skill[] = [
   { Icon: SiHtml5, name: 'HTML5', level: 95, color: '#E34F26' },
@@ -50,4 +58,22 @@ export const skills: Skill[] = [
   },
   { Icon: SiGit, name: 'Git', level: 45, color: '#F05032' },
   { Icon: SiGithub, name: 'GitHub', level: 87, color: '#fff' },
+];
+
+export const contactInfo: ContactInfo[] = [
+  {
+    Icon: MapPin,
+    label: 'Location',
+    value: 'Dhaka, Bangladesh',
+  },
+  {
+    Icon: Phone,
+    label: 'Phone',
+    value: '+880 123 456 789',
+  },
+  {
+    Icon: Mail,
+    label: 'Email',
+    value: 'mashruf@example.com',
+  },
 ];

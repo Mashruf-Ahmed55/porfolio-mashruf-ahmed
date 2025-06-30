@@ -11,155 +11,53 @@ import {
 } from '@/components/ui/drawer';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import {
-  CheckCircle,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-  Twitter,
-} from 'lucide-react';
+import { contactInfo } from '@/data';
+import { CheckCircle, Send } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
-
-interface FormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
-interface FormErrors {
-  name?: string;
-  email?: string;
-  subject?: string;
-  message?: string;
-}
+import { useForm } from 'react-hook-form';
 
 export default function ContactForm({
   children,
 }: {
   children?: React.ReactNode;
 }) {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    },
   });
-  const [errors, setErrors] = useState<FormErrors>({});
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      icon: Github,
-      url: 'https://github.com/mashrufahmed',
-      color: 'hover:text-gray-300 hover:bg-gray-700',
-    },
-    {
-      name: 'LinkedIn',
-      icon: Linkedin,
-      url: 'https://linkedin.com/in/mashrufahmed',
-      color: 'hover:text-blue-400 hover:bg-blue-500/10',
-    },
-    {
-      name: 'Twitter',
-      icon: Twitter,
-      url: 'https://twitter.com/mashrufahmed',
-      color: 'hover:text-sky-400 hover:bg-sky-500/10',
-    },
-    {
-      name: 'Email',
-      icon: Mail,
-      url: 'mailto:mashruf@example.com',
-      color: 'hover:text-red-400 hover:bg-red-500/10',
-    },
-  ];
-
-  const contactInfo = [
-    {
-      icon: MapPin,
-      label: 'Location',
-      value: 'Dhaka, Bangladesh',
-    },
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: '+880 123 456 789',
-    },
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'mashruf@example.com',
-    },
-  ];
-
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
-
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-
-    // Clear error when user starts typing
-    if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-
-    setIsSubmitting(true);
+  const onSubmit = async (data: {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+  }) => {
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
+      setIsSubmitting(true);
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
       setIsSubmitted(true);
-
-      // Reset form after showing success
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: '',
-        });
-        setIsSubmitted(false);
-      }, 3000);
+      reset();
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error(error);
     } finally {
       setIsSubmitting(false);
     }
@@ -201,7 +99,7 @@ export default function ContactForm({
                   className="flex items-center space-x-4 p-4 rounded-xl bg-gray-800/50 hover:bg-gray-800/70 transition-all duration-300 border border-gray-700/50"
                 >
                   <div className="p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg">
-                    <info.icon className="w-5 h-5 text-white" />
+                    <info.Icon className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">{info.label}</p>
@@ -228,7 +126,7 @@ export default function ContactForm({
               </div>
             ) : (
               <form
-                onSubmit={handleSubmit}
+                onSubmit={handleSubmit(onSubmit)}
                 className="bg-gray-800/50 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-gray-700 space-y-6"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -239,16 +137,16 @@ export default function ContactForm({
                     </label>
                     <Input
                       type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
+                      {...register('name', { required: true })}
                       placeholder="Your full name"
                       className={`bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300 ${
                         errors.name ? 'border-red-500' : ''
                       }`}
                     />
                     {errors.name && (
-                      <p className="text-red-400 text-sm mt-1">{errors.name}</p>
+                      <p className="text-red-400 text-sm mt-1">
+                        {errors.name?.message}
+                      </p>
                     )}
                   </div>
 
@@ -259,9 +157,7 @@ export default function ContactForm({
                     </label>
                     <Input
                       type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
+                      {...register('email', { required: true })}
                       placeholder="your.email@example.com"
                       className={`bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300 ${
                         errors.email ? 'border-red-500' : ''
@@ -269,7 +165,7 @@ export default function ContactForm({
                     />
                     {errors.email && (
                       <p className="text-red-400 text-sm mt-1">
-                        {errors.email}
+                        {errors.email?.message}
                       </p>
                     )}
                   </div>
@@ -282,9 +178,7 @@ export default function ContactForm({
                   </label>
                   <Input
                     type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
+                    {...register('subject', { required: true })}
                     placeholder="What's this about?"
                     className={`bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300 ${
                       errors.subject ? 'border-red-500' : ''
@@ -292,7 +186,7 @@ export default function ContactForm({
                   />
                   {errors.subject && (
                     <p className="text-red-400 text-sm mt-1">
-                      {errors.subject}
+                      {errors.subject?.message}
                     </p>
                   )}
                 </div>
@@ -303,9 +197,7 @@ export default function ContactForm({
                     Message *
                   </label>
                   <Textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
+                    {...register('message', { required: true })}
                     rows={5}
                     placeholder="Tell me about your project or just say hello..."
                     className={`bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500/20 resize-none transition-all duration-300 ${
@@ -314,7 +206,7 @@ export default function ContactForm({
                   />
                   {errors.message && (
                     <p className="text-red-400 text-sm mt-1">
-                      {errors.message}
+                      {errors.message.message || 'This field is required'}
                     </p>
                   )}
                 </div>
