@@ -12,11 +12,11 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { contactInfo } from '@/data';
+import axios from 'axios';
 import { CheckCircle, Send } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-
 export default function ContactForm({
   children,
 }: {
@@ -47,12 +47,10 @@ export default function ContactForm({
   }) => {
     try {
       setIsSubmitting(true);
-      await fetch('/api/send-email', {
-        method: 'POST',
+      await axios.post('/api/contact', data, {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
       });
       setIsSubmitted(true);
       reset();

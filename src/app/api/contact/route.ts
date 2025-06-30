@@ -32,6 +32,11 @@ export const POST = async (req: NextRequest) => {
       replyTo: email,
       subject: subject || `New message from ${name}`,
       html: await render(AdminNotification({ name, email, message })),
+      headers: {
+        'X-Priority': '1',
+        'X-MSMail-Priority': 'High',
+        Importance: 'high',
+      },
     });
 
     await transporter.sendMail({
@@ -39,6 +44,11 @@ export const POST = async (req: NextRequest) => {
       to: email,
       subject: 'We received your message!',
       html: await render(UserConfirmation({ name })),
+      headers: {
+        'X-Priority': '1',
+        'X-MSMail-Priority': 'High',
+        Importance: 'high',
+      },
     });
 
     return NextResponse.json(
