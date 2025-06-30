@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden w-full"
     >
-      <div className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pb-20 pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
           {/* Left side - Text content */}
           <motion.div
@@ -115,9 +115,21 @@ const Hero: React.FC = () => {
               className="flex justify-center lg:justify-start space-x-6"
             >
               {[
-                { icon: Github, href: '#', label: 'GitHub' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { icon: Mail, href: '#contact', label: 'Email' },
+                {
+                  icon: Github,
+                  href: 'https://github.com/Mashruf-Ahmed55',
+                  label: 'GitHub',
+                },
+                {
+                  icon: Linkedin,
+                  href: 'https://www.linkedin.com/in/mashruf-ahmed55',
+                  label: 'LinkedIn',
+                },
+                {
+                  icon: Mail,
+                  href: `https://mail.google.com/mail/?view=cm&fs=1&to=mashrufahmed92@gmail.com`,
+                  label: 'Email',
+                },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}

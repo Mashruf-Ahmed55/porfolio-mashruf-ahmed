@@ -1,6 +1,6 @@
 'use client';
 
-import { Code, Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 import type React from 'react';
 import { useRef } from 'react';
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
           className="flex justify-center items-center space-y-4 md:space-y-0"
         >
           <div className="text-xs md:text-sm text-gray-400 flex items-center space-x-2 font-sans">
-            <span>© {currentYear} Mashruf Ahmed. Made with</span>
+            <span>© {currentYear} Made By - Mashruf Ahmed.</span>
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{
@@ -50,9 +50,6 @@ const Footer: React.FC = () => {
             >
               <Heart className="h-4 w-4 text-red-500 fill-current" />
             </motion.span>
-            <span>and</span>
-            <Code className="h-4 w-4 text-blue-400" />
-            <span>in Bangladesh</span>
           </div>
         </motion.div>
       </div>

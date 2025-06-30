@@ -75,7 +75,7 @@ export default function ContactForm({
           </DrawerDescription>
         </DrawerHeader>
 
-        <div className="w-full grid grid-cols-1 overflow-scroll md:grid-cols-2 gap-10 md:gap-12">
+        <div className="w-full grid grid-cols-1 overflow-y-scroll md:overflow-hidden md:grid-cols-2 gap-10 md:gap-12">
           {/* Left Column */}
           <div className="space-y-8">
             <div>

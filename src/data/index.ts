@@ -64,16 +64,16 @@ export const contactInfo: ContactInfo[] = [
   {
     Icon: MapPin,
     label: 'Location',
-    value: 'Dhaka, Bangladesh',
+    value: '6300, Rajshahi, Bangladesh',
   },
   {
     Icon: Phone,
     label: 'Phone',
-    value: '+880 123 456 789',
+    value: '+880 131 056 8975',
   },
   {
     Icon: Mail,
     label: 'Email',
-    value: 'mashruf@example.com',
+    value: 'mashrufahmed95@gmail.com',
   },
 ];
