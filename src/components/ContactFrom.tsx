@@ -121,6 +121,10 @@ export default function ContactForm({
                 <p className="text-gray-400 text-sm sm:text-base">
                   Thank you for reaching out. I'll get back to you soon!
                 </p>
+                <p className="text-gray-400 text-sm sm:text-base">
+                  Please check your inbox or spam folder for a confirmation
+                  email.
+                </p>
               </div>
             ) : (
               <form
