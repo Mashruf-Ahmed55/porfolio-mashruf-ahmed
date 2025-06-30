@@ -2,7 +2,6 @@
 import { motion } from 'motion/react';
 import React from 'react';
 import About from '../components/About';
-import Contact from '../components/Contact';
 import Experience from '../components/Experience';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
@@ -17,16 +16,15 @@ const Home: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen"
+      className="min-h-screen w-full"
     >
       <Navbar />
-      <main>
+      <main className="max-w-7xl mx-auto sm:px-6 lg:px-8 py-20">
         <Hero />
         <About />
         <Skills />
         <Projects />
         <Experience />
-        {/* <Contact /> */}
       </main>
       <Footer />
     </motion.div>

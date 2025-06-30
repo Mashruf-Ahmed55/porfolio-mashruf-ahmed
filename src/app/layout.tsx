@@ -1,3 +1,4 @@
+import ContactButton from '@/components/ContactButton';
 import Provider from '@/components/Provider';
 import { SmoothScroll } from '@/components/SmoothScroll';
 import ThemeManager from '@/components/ThemeManager';
@@ -27,9 +28,9 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         <SmoothScroll>
-          <ThemeManager />
           <Provider>{children}</Provider>
           {/* <LiftUpButton /> */}
+          <ContactButton />
         </SmoothScroll>
       </body>
     </html>
