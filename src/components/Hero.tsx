@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('/cv.pdf', '_blank')}
+                onClick={() => window.open('/my-cv.pdf', '_blank')}
                 className="px-4 py-2.5 border-2 border-blue-600 text-blue-600 dark:text-blue-400 font-medium cursor-pointer flex items-center gap-x-1 rounded-full justify-center"
                 onMouseEnter={() => setCursorType('hover')}
                 onMouseLeave={() => setCursorType('default')}

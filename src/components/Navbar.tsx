@@ -145,7 +145,7 @@ export default function UnifiedNavbar() {
 
             {/* CTA Button */}
             <button
-              onClick={() => window.open('/resume.pdf', '_blank')}
+              onClick={() => window.open('/my-cv.pdf', '_blank')}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 ${
                 scrolled
                   ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg hover:shadow-xl'
